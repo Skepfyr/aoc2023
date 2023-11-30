@@ -42,7 +42,10 @@ fn main() -> Result<()> {
             }
         }
     };
-    DAYS[args.day as usize - 1](input)
+    let solution = DAYS
+        .get(args.day as usize - 1)
+        .unwrap_or_else(|| panic!("Day {} has not been implemented yet", args.day));
+    solution(input)
 }
 
 fn download_input(day: u8, session_cookie: &str) -> Result<String> {
