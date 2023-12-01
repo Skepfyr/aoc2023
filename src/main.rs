@@ -1,7 +1,11 @@
 use clap::Parser;
 use color_eyre::{eyre::Context, Result};
 
-const DAYS: &[fn(String) -> Result<()>] = &[];
+mod day01;
+
+const DAYS: &[fn(String) -> Result<()>] = &[
+    day01::solution
+];
 
 #[derive(Debug, clap::Parser)]
 struct Args {
