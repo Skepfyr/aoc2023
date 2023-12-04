@@ -4,8 +4,14 @@ use color_eyre::{eyre::Context, Result};
 mod day01;
 mod day02;
 mod day03;
+mod day04;
 
-const DAYS: &[fn(String) -> Result<()>] = &[day01::solution, day02::solution, day03::solution];
+const DAYS: &[fn(String) -> Result<()>] = &[
+    day01::solution,
+    day02::solution,
+    day03::solution,
+    day04::solution,
+];
 
 #[derive(Debug, clap::Parser)]
 struct Args {
