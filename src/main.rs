@@ -5,12 +5,14 @@ mod day01;
 mod day02;
 mod day03;
 mod day04;
+mod day05;
 
 const DAYS: &[fn(String) -> Result<()>] = &[
     day01::solution,
     day02::solution,
     day03::solution,
     day04::solution,
+    day05::solution,
 ];
 
 #[derive(Debug, clap::Parser)]
