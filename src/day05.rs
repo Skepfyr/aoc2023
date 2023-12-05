@@ -38,7 +38,6 @@ pub fn solution(input: String) -> Result<()> {
                 .unwrap();
             map.insert(source, (len, dest));
         }
-        dbg!(&map);
         part1_locations = part1_locations
             .into_iter()
             .map(|l| {
@@ -76,7 +75,7 @@ pub fn solution(input: String) -> Result<()> {
                     })
                     .collect::<Vec<_>>();
                 mapped.push((*start, *len));
-                dbg!(mapped)
+                mapped
             })
             .filter(|&(_, len)| len > 0)
             .collect();
