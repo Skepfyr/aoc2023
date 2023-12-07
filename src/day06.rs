@@ -1,6 +1,4 @@
-use color_eyre::Result;
-
-pub fn solution(input: String) -> Result<()> {
+pub fn solution(input: String) {
     let mut lines = input.lines();
     let times = lines
         .next()
@@ -45,6 +43,4 @@ pub fn solution(input: String) -> Result<()> {
         .filter(|&d| d > record)
         .count();
     println!("Part 2: {}", part2);
-
-    Ok(())
 }

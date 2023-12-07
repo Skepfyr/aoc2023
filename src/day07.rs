@@ -1,9 +1,7 @@
 use std::collections::HashMap;
 
-use color_eyre::Result;
-
-pub fn solution(input: String) -> Result<()> {
-    let mut hands: Vec<([u8; 5], u64, &str)> = input
+pub fn solution(input: String) {
+    let mut hands: Vec<([u8; 5], u64)> = input
         .lines()
         .map(|line| {
             let (hand, bid) = line.split_once(' ').unwrap();
@@ -23,11 +21,10 @@ pub fn solution(input: String) -> Result<()> {
                     .try_into()
                     .unwrap(),
                 bid.trim().parse().unwrap(),
-                hand,
             )
         })
         .collect();
-    hands.sort_by_cached_key(|&(hand, _, _)| {
+    hands.sort_by_cached_key(|&(hand, _)| {
         let cards = hand
             .into_iter()
             .fold(HashMap::<u8, u64>::new(), |mut counts, card| {
@@ -54,17 +51,17 @@ pub fn solution(input: String) -> Result<()> {
     let part1: u64 = hands
         .iter()
         .enumerate()
-        .map(|(i, (_, bid, _))| (i as u64 + 1) * bid)
+        .map(|(i, (_, bid))| (i as u64 + 1) * bid)
         .sum();
     println!("Part 1: {}", part1);
-    for (hand, _, _) in &mut hands {
+    for (hand, _) in &mut hands {
         for card in hand {
             if *card == 11 {
                 *card = 1;
             }
         }
     }
-    hands.sort_by_cached_key(|&(hand, _, name)| {
+    hands.sort_by_cached_key(|&(hand, _)| {
         let mut cards = hand
             .into_iter()
             .fold(HashMap::<u8, u64>::new(), |mut counts, card| {
@@ -93,14 +90,12 @@ pub fn solution(input: String) -> Result<()> {
         } else {
             1
         };
-        println!("{}: {}", name, hand_type);
         (hand_type, hand)
     });
     let part2: u64 = hands
         .iter()
         .enumerate()
-        .map(|(i, (_, bid, _))| (i as u64 + 1) * bid)
+        .map(|(i, (_, bid))| (i as u64 + 1) * bid)
         .sum();
     println!("Part 2: {}", part2);
-    Ok(())
 }

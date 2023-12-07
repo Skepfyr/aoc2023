@@ -9,7 +9,7 @@ mod day05;
 mod day06;
 mod day07;
 
-const DAYS: &[fn(String) -> Result<()>] = &[
+const DAYS: &[fn(String)] = &[
     day01::solution,
     day02::solution,
     day03::solution,
@@ -61,7 +61,8 @@ fn main() -> Result<()> {
     let solution = DAYS
         .get(args.day as usize - 1)
         .unwrap_or_else(|| panic!("Day {} has not been implemented yet", args.day));
-    solution(input)
+    solution(input);
+    Ok(())
 }
 
 fn download_input(day: u8, session_cookie: &str) -> Result<String> {

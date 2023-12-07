@@ -1,10 +1,8 @@
-use color_eyre::eyre::Result;
-
 const NUMBERS: [&str; 10] = [
     "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
 ];
 
-pub fn solution(input: String) -> Result<()> {
+pub fn solution(input: String) {
     let (part1, part2): (u32, u32) = input
         .lines()
         .map(|line| {
@@ -31,5 +29,4 @@ pub fn solution(input: String) -> Result<()> {
         .fold((0, 0), |(a, b), (c, d)| (a + c, b + d));
     println!("Part 1: {}", part1);
     println!("Part 2: {}", part2);
-    Ok(())
 }

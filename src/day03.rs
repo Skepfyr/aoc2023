@@ -1,8 +1,6 @@
 use std::collections::HashMap;
 
-use color_eyre::Result;
-
-pub fn solution(input: String) -> Result<()> {
+pub fn solution(input: String) {
     let map = input
         .lines()
         .map(|line| (line, line.bytes().collect::<Vec<_>>()))
@@ -53,7 +51,6 @@ pub fn solution(input: String) -> Result<()> {
         .map(|neighbours| neighbours[0] * neighbours[1])
         .sum::<u32>();
     println!("Part 2: {}", part2);
-    Ok(())
 }
 
 fn is_symbol(c: u8) -> bool {

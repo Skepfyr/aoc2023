@@ -1,6 +1,4 @@
-use color_eyre::Result;
-
-pub fn solution(input: String) -> Result<()> {
+pub fn solution(input: String) {
     let games = input
         .lines()
         .map(|line| {
@@ -46,5 +44,4 @@ pub fn solution(input: String) -> Result<()> {
         .map(|(r, g, b)| r * g * b)
         .sum();
     println!("Part 2: {}", part2);
-    Ok(())
 }

@@ -1,8 +1,6 @@
 use std::collections::BTreeMap;
 
-use color_eyre::Result;
-
-pub fn solution(input: String) -> Result<()> {
+pub fn solution(input: String) {
     let mut lines = input.lines();
     let mut part1_locations = lines
         .next()
@@ -90,5 +88,4 @@ pub fn solution(input: String) -> Result<()> {
             .min()
             .unwrap()
     );
-    Ok(())
 }
