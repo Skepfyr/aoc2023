@@ -9,6 +9,7 @@ mod day05;
 mod day06;
 mod day07;
 mod day08;
+mod day09;
 
 const DAYS: &[fn(String)] = &[
     day01::solution,
@@ -19,6 +20,7 @@ const DAYS: &[fn(String)] = &[
     day06::solution,
     day07::solution,
     day08::solution,
+    day09::solution,
 ];
 
 #[derive(Debug, clap::Parser)]
